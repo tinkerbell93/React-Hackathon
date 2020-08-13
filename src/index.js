@@ -4,10 +4,21 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import create, {
+  sagaMiddleware
+} from './redux/create';
+import {
+  Provider
+} from 'react-redux'
+import rootSaga from './redux/middlewares/saga';
+
+const store = create();
+sagaMiddleware.run(rootSaga);
+
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
