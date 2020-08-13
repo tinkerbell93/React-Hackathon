@@ -2,6 +2,9 @@ import React from 'react';
 import { Calendar, Badge } from 'antd';
 import 'antd/dist/antd.css'
 import { useCallback } from 'react';
+import { select } from 'redux-saga/effects';
+import { Redirect } from 'react-router-dom';
+import { history } from '../redux/create';
 
 
 const defaultChars = { __html: '&#128566' }
@@ -47,6 +50,17 @@ export default function ScheduleList({ schedule, loading, error, getSchedule }) 
 
 
   return (
-    <Calendar dateCellRender={dateCellRender} monthCellRender={8} onSelect={(e) => { console.log(e) }} />
+    <Calendar dateCellRender={dateCellRender} monthCellRender={8} onSelect={(value) => { select(value) }} />
   );
+
+  function select(value) {
+    const [month, date] = [value._d.getMonth(), (value._d.getDate() < 10 ? '' + 0 + value._d.getDate() : value._d.getDate())];
+    const _date = '' + month + date;
+    console.log(_date);
+    history.push({
+      pathname: "/imo", state: {
+        date: _date
+      }
+    })
+  }
 }
