@@ -69,7 +69,7 @@ function* startLoginSaga(action) {
   const { email, password } = action.payload;
   try {
     yield put(start());
-    yield delay(2000);
+    yield delay(1000);
     const token = yield call(UserService.login, email, password);
     TokenService.save(token);
     yield put(success(token));

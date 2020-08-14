@@ -16,21 +16,31 @@
 $font-size: 15px;
 $main-color: #ffc000;
 $sub-color: #f9f7f0;
-$radius: 5px;
+$transition: all 0.2s;
+$radius: 10px;
 $gap: 20px;
 
 .signin {
   @include flex-layout;
   height: 100vh;
+  padding: $gap;
   font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
   color: $sub-color;
+  background: {
+    image: url('../img/main-background.png');
+    size: 70%;
+    color: $sub-color;
+    repeat: no-repeat;
+    position: bottom;
+  }
   .a11y-hidden {
     @include a11y-hidden;
   }
-  .signin-form {
-    width: 30vw;
-    max-width: 320px;
-    margin-top: -100px;
+  .signin-wrapper {
+    // width: 50vw;
+    // max-width: 320px;
+    min-width: 200px;
+    margin-top: -230px;
     h2 {
       margin: 0;
       font-weight: 700;
@@ -42,37 +52,64 @@ $gap: 20px;
       font-size: $font-size * 2;
       padding-left: $gap / 2;
     }
-    div {
+    .signin-form {
       padding: $gap;
       border-radius: $radius;
-      background-color: $main-color;
-      label {
-        display: block;
-        position: relative;
-        color: $main-color;
-        span {
-          position: absolute;
-          top: 14px;
-          left: 8px;
-        }
-        input {
-          width: 100%;
-          font-weight: 700;
-          padding: $gap / 2;
-          padding-left: $gap * 1.5;
-          margin-bottom: $gap;
-          border: 0;
-          border-radius: $radius;
+      background-color: #fff;
+      transition: $transition;
+      &:hover {
+        box-shadow: 0 5px 10px #dcd9cf;
+      }
+      @include flex-layout;
+      .left {
+        margin-top: $gap;
+        label {
+          display: inline-block;
+          position: relative;
+          color: #747474;
+          span {
+            position: absolute;
+            top: 14px;
+            left: 8px;
+          }
+          input {
+            width: 100%;
+            font-weight: 700;
+            padding: $gap / 2;
+            padding-left: $gap * 1.5;
+            color: $main-color;
+            border: 0;
+            border-bottom: 2px solid $sub-color;
+            transition: $transition;
+            &:focus {
+              outline: 0;
+              border-bottom: 2px solid $main-color;
+            }
+          }
+          input[type='text'] {
+            margin-bottom: $gap;
+          }
         }
       }
-      button {
-        display: inline-block;
-        padding: $gap / 2;
-        background-color: $sub-color;
-        color: $main-color;
-        border: 0;
-        border-radius: $radius;
-        outline: 0;
+      .right {
+        button {
+          display: inline-block;
+          padding: $gap / 2;
+          margin-left: $gap * 1.5;
+          // height: 104px;
+          background-color: #fff;
+          color: $main-color;
+          font-weight: 700;
+          border: 2px solid $main-color;
+          border-radius: $radius;
+          outline: 0;
+          transition: $transition;
+          cursor: pointer;
+          &:hover {
+            background-color: $main-color;
+            color: #fff;
+          }
+        }
       }
     }
   }
