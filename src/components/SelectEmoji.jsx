@@ -1,15 +1,38 @@
 import React from "react";
+import { history } from "../redux/create";
 
-export default function SelectEmoji() {
+export default function SelectEmoji({ date }) {
+  console.log("SelectEmoji", date);
   return (
     <div>
-      <div>오늘 날짜 &#10024;</div>
-      <div>기본 값 &#128566;</div>
-      <div>기쁨 &#128518;</div>
-      <div>슬픔 &#128546;</div>
-      <div>화남 &#128544;</div>
-      <div>만족 &#128524;</div>
-      <div>걱정 &#128532;</div>
+      <div>
+        <button onClick={click}>&#128566;</button>
+      </div>
+      <div>
+        <button onClick={click}>&#128518;</button>
+      </div>
+      <div>
+        <button onClick={click}>&#128546;</button>
+      </div>
+      <div>
+        <button onClick={click}>&#128544;</button>
+      </div>
+      <div>
+        <button onClick={click}>&#128524;</button>
+      </div>
+      <div>
+        <button onClick={click}>&#128532;</button>
+      </div>
     </div>
   );
+
+  function click(e) {
+    history.push({
+      pathname: "/add",
+      state: {
+        date,
+        emoji: e.target.textContent,
+      },
+    });
+  }
 }

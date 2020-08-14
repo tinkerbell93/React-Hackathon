@@ -4,7 +4,9 @@ import { useDispatch } from "react-redux";
 import { useCallback } from "react";
 import { addScheduleSagaActionCreator } from "../redux/modules/schedule";
 
-export default function AddScheduleContainer() {
+export default function AddScheduleContainer(props) {
+  const date = props.location.state.date;
+  const emoji = props.location.state.emoji;
   const dispatch = useDispatch();
   const addSchedule = useCallback(
     (payload) => {
@@ -12,5 +14,5 @@ export default function AddScheduleContainer() {
     },
     [dispatch]
   );
-  return <AddSchedule addSchedule={addSchedule} />;
+  return <AddSchedule addSchedule={addSchedule} date={date} emoji={emoji} />;
 }
