@@ -4,12 +4,8 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import create, {
-  sagaMiddleware
-} from './redux/create';
-import {
-  Provider
-} from 'react-redux'
+import create, { sagaMiddleware } from './redux/create';
+import { Provider } from 'react-redux';
 import rootSaga from './redux/middlewares/saga';
 
 const store = create();
