@@ -30,8 +30,12 @@ const defaultChars = { __html: '&#128566' }
 
 
 
+<<<<<<< HEAD
 export default function ScheduleList({ schedule, loading, error, getSchedule, mode }) {
 >>>>>>> 9a0136527083589f9cc6af104ff7729322328184
+=======
+export default function ScheduleList({ schedule, loading, error, getSchedule }) {
+>>>>>>> e79cab4ad2e59c0575873d657989e94731858017
   const today = new Date();
   const _today =
     "" +
@@ -80,6 +84,7 @@ export default function ScheduleList({ schedule, loading, error, getSchedule, mo
 
   return (
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Calendar
       dateCellRender={dateCellRender}
       monthCellRender={8}
@@ -90,6 +95,9 @@ export default function ScheduleList({ schedule, loading, error, getSchedule, mo
 =======
     <Calendar className={mode ? styles.dark_mode : ''} dateCellRender={dateCellRender} monthCellRender={8} onSelect={(value) => { select(value) }} />
 >>>>>>> 9a0136527083589f9cc6af104ff7729322328184
+=======
+    <Calendar dateCellRender={dateCellRender} monthCellRender={8} onSelect={(value) => { select(value) }} />
+>>>>>>> e79cab4ad2e59c0575873d657989e94731858017
   );
 
   function select(value) {

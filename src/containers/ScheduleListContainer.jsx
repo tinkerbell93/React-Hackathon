@@ -8,14 +8,14 @@ export default function ScheduleListContainer() {
   const schedule = useSelector(state => state.schedule.schedule);
   const loading = useSelector(state => state.schedule.loading);
   const error = useSelector(state => state.schedule.error);
-  const mode = useSelector(state => state.darkmode.mode);
+
   const dispatch = useDispatch();
   const getSchedule = React.useCallback(() => {
     dispatch(getScheduleSagaActionCreator());
   }, [dispatch])
 
   return (
-    <ScheduleList schedule={schedule} loading={loading} error={error} getSchedule={getSchedule} mode={mode} />
+    <ScheduleList schedule={schedule} loading={loading} error={error} getSchedule={getSchedule} />
   )
 
 }

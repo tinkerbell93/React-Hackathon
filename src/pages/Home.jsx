@@ -1,11 +1,16 @@
 import React from 'react'
 import ScheduleListContainer from '../containers/ScheduleListContainer'
 import { Row, Col } from 'antd'
-import { useSelector } from 'react-redux'
+import TokenService from '../services/TokenService'
+import { Redirect } from 'react-router-dom';
 
 
 export default function Home() {
-  const mode = useSelector(state => state.darkmode.mode);
+  const token = TokenService.get();
+  if (!token) {
+    return (<Redirect to='/signin' />)
+  }
+
   return (
     <Row justify="center">
       <Col span={16}>

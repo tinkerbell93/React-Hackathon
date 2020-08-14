@@ -17,11 +17,4 @@ const reducer = (history) =>
 
 
 
-
-const reducer = (history) => combineReducers({
-  schedule,
-  darkmode,
-  router: connectRouter(history),
-})
-
 export default reducer;
