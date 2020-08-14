@@ -16,12 +16,17 @@ import { history } from './redux/create'
 import imo from './pages/imo';
 import Home from './pages/Home';
 
-
+import { useSelector, useDispatch } from 'react-redux';
+import DarkModeService from './services/DarkModeService';
 
 
 function App() {
+  const mode = useSelector(state => state.darkmode.mode);
+  const dispatch = useDispatch();
   return (<>
+
     <ErrorBoundary >
+      <button className="mode-changer" onClick={() => { DarkModeService.modeChange(mode, dispatch) }}>Mode Change</button>
       <ConnectedRouter history={history} >
         <Switch>
           <Route path="/imo" component={imo} />
@@ -31,6 +36,8 @@ function App() {
       </ConnectedRouter>
     </ErrorBoundary >
   </>)
+
+
 }
 
 export default App;

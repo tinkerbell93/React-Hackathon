@@ -1,5 +1,6 @@
 import schedule from './schedule'
 import auth from './auth';
+import darkmode from './darkmode'
 import {
   combineReducers
 } from 'redux';
@@ -14,6 +15,7 @@ import {
 
 const reducer = (history) => combineReducers({
   schedule,
+  darkmode,
   router: connectRouter(history),
 })
 
