@@ -1,4 +1,4 @@
-import schedule from './schedule'
+import schedule from './schedule';
 import auth from './auth';
 import {
   combineReducers
@@ -7,14 +7,14 @@ import {
   connectRouter
 } from 'connected-react-router';
 
+const reducer = (history) =>
+  combineReducers({
+    schedule,
+    auth,
+    router: connectRouter(history),
+  });
 
 
 
-
-
-const reducer = (history) => combineReducers({
-  schedule,
-  router: connectRouter(history),
-})
 
 export default reducer;

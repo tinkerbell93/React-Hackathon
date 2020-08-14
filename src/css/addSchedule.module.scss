@@ -1,0 +1,111 @@
+@mixin flex-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+$font-color: #24292e;
+$focus-color: #66ccff;
+$font-size: 15px;
+$main-color: #ffb500;
+$sub-color: #f9f7f0;
+$transition: all 0.2s;
+$radius: 10px;
+$gap: 20px;
+$outline-color: #e1e4e8;
+
+.container {
+  margin: 0;
+  padding: $gap;
+  font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
+  box-sizing: border-box;
+  background-color: $sub-color;
+  height: 100vh;
+
+  .flex-container {
+    @include flex-layout;
+    padding-top: 10px;
+
+    .emoji-container {
+      display: block;
+      text-align: center;
+      .form-wrapper {
+        @include flex-layout;
+        .rigth {
+          padding-left: $gap;
+        }
+      }
+      .emoji {
+        text-align: center;
+        font-size: 15rem;
+        margin-bottom: 0;
+        color: rgba(0, 0, 0, 0.9);
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .date {
+        text-align: left;
+        margin-top: 15px;
+        font-size: $font-size * 2;
+        font-weight: 700;
+        color: $main-color;
+        margin-left: $gap;
+      }
+
+      input,
+      textarea {
+        width: 50vw;
+        display: block;
+        border: 0;
+        border-radius: $radius;
+        padding: $gap / 2;
+        margin-bottom: $gap;
+        background-color: transparent;
+        transition: $transition;
+        margin-left: $gap;
+        &:focus,
+        &:focus {
+          outline: none;
+          background-color: #fff;
+        }
+      }
+
+      .title {
+        font-size: $font-size * 1.5;
+        font-weight: 400;
+      }
+
+      .message {
+        font-size: $font-size;
+        min-height: 10rem;
+      }
+
+      button {
+        width: calc(50% - 5px);
+        padding: $gap / 2;
+        border: 0;
+        font-weight: 400;
+        font-size: $font-size;
+        overflow: hidden;
+        border-radius: $radius;
+        color: #fff;
+        cursor: pointer;
+        transition: $transition;
+        &:hover {
+          outline: none;
+          box-shadow: 0px 3px 5px #ddd;
+        }
+      }
+
+      .save {
+        margin-right: 5px;
+        background: $main-color;
+      }
+
+      .cancel {
+        margin-left: 5px;
+        background-color: #c8c8c8;
+      }
+    }
+  }
+}
