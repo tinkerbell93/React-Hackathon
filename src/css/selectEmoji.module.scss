@@ -1,25 +1,37 @@
-body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
+@mixin flex-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.container {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 
-  .flex-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    height: 100vh;
+$font-size: 15px;
+$main-color: #ffb500;
+$sub-color: #f9f7f0;
+$transition: all 0.2s;
+$radius: 10px;
+$gap: 20px;
+
+.select-emogi {
+  padding: $gap;
+  height: 100vh;
+  background-color: $sub-color;
+  font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
+  @include flex-layout;
+  h2 {
+    color: $main-color;
+    line-height: 0;
+    font-size: 3rem;
+    font-weight: 700;
+  }
+
+  .select-wrapper {
+    border-radius: $radius;
+    background-color: #fff;
 
     .emoji-container {
-      display: inline;
+      display: inline-block;
       margin: 0 10px;
       padding: 0;
-      background-color: dodgerblue;
 
       p {
         display: block;
@@ -28,9 +40,13 @@ body {
       .emoji {
         margin: 0;
         padding: 0;
-        background-color: firebrick;
-        font-size: 300px;
+        font-size: 10vw;
+        color: rgba(0, 0, 0, 1);
         cursor: pointer;
+        transition: $transition;
+        &:hover {
+          text-shadow: 0px 5px 8px #d4ceb8;
+        }
       }
     }
   }
