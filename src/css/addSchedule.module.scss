@@ -1,0 +1,36 @@
+.container {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  .flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100vh;
+
+    .emoji-container {
+      display: inline;
+      margin: 0 10px;
+      padding: 0;
+      background-color: dodgerblue;
+
+      .emoji {
+        background-color: firebrick;
+        text-align: center;
+        font-size: 300px;
+        margin-bottom: 0;
+        cursor: pointer;
+      }
+
+      .date {
+        text-align: center;
+      }
+
+      input {
+        width: 100%;
+      }
+    }
+  }
+}

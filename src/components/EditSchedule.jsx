@@ -7,7 +7,8 @@ export default function EditSchedule({ editSchedule, schedule, emoji }) {
   const [title, setTitle] = useState(schedule.title);
   const [message, setMessage] = useState(schedule.message);
   const _emoji = { __html: emoji };
-  const date = schedule.author
+  const date = schedule.author;
+  console.log("date", +date + 100 + "");
   return (
     <div>
       <form>
@@ -19,13 +20,33 @@ export default function EditSchedule({ editSchedule, schedule, emoji }) {
             : (+date + 100 + "")[0] + (+date + 100 + "")[1]}
           월{" "}
           {(+date + 100 + "").length === 3
-            ? date[1] + date[2]
-            : date[2] + date[3]}
+            ? (+date + 100 + "")[1] !== "0"
+              ? (+date + 100 + "")[1] + (+date + 100 + "")[2]
+              : (+date + 100 + "")[2]
+            : (+date + 100 + "")[2] !== "0"
+            ? (+date + 100 + "")[2] + (+date + 100 + "")[3]
+            : (+date + 100 + "")[3]}
           일
         </p>
-        <input type="text" name="title" value={title} onChange={(e) => { setTitle(e.target.value) }} />
-        <input type="text" name="message" value={message} onChange={(e) => { setMessage(e.target.value) }} />
-        <button onClick={click} type="button">확인</button>
+        <input
+          type="text"
+          name="title"
+          value={title}
+          onChange={(e) => {
+            setTitle(e.target.value);
+          }}
+        />
+        <input
+          type="text"
+          name="message"
+          value={message}
+          onChange={(e) => {
+            setMessage(e.target.value);
+          }}
+        />
+        <button onClick={click} type="button">
+          확인
+        </button>
         <Link to="/">
           <button>취소</button>
         </Link>

@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+.container {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  .flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100vh;
+
+    .emoji-container {
+      display: inline;
+      margin: 0 10px;
+      padding: 0;
+      background-color: dodgerblue;
+
+      p {
+        display: block;
+      }
+
+      .emoji {
+        margin: 0;
+        padding: 0;
+        background-color: firebrick;
+        font-size: 300px;
+        cursor: pointer;
+      }
+    }
+  }
+}

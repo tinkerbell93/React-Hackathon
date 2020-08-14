@@ -9,7 +9,6 @@ export default function AddScheduleContainer(props) {
   const date = props.location.state.date;
   const emoji = props.location.state.emoji;
 
-
   const dispatch = useDispatch();
   const addSchedule = useCallback(
     (payload) => {

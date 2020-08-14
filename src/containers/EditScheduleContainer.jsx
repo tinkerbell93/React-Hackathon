@@ -1,5 +1,4 @@
-
-import React from 'react'
+import React from "react";
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { editScheduleSagaActionCreator } from "../redux/modules/schedule";
@@ -15,7 +14,12 @@ export default function EditScheduleContainer(props) {
       dispatch(editScheduleSagaActionCreator(scheduleId, payload));
     },
     [dispatch]
-  )
-  return < EditSchedule editSchedule={editSchedule} schedule={schedule} emoji={emoji} />
-
+  );
+  return (
+    <EditSchedule
+      editSchedule={editSchedule}
+      schedule={schedule}
+      emoji={emoji}
+    />
+  );
 }
