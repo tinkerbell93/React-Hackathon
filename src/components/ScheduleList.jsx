@@ -15,10 +15,8 @@ export default function ScheduleList({
   mode,
 }) {
   const today = new Date();
-  const _today =
-    "" +
-    today.getMonth() +
-    (today.getDate() < 10 ? "" + 0 + today.getDate() : today.getDate());
+  const _today = '' + today.getMonth() + (today.getDate() < 10 ? '' + 0 + today.getDate() : today.getDate());
+  let curMonth = 0;
 
   React.useEffect(() => {
     getSchedule();
@@ -61,24 +59,15 @@ export default function ScheduleList({
   );
 
   return (
-    <Calendar
-      className={mode ? styles.dark_mode : ""}
-      dateCellRender={dateCellRender}
-      monthCellRender={8}
-      onSelect={(value) => {
-        select(value);
-      }}
-    />
+    <Calendar dateCellRender={dateCellRender} onSelect={(value) => { select(value) }} />
   );
 
   function select(value) {
-    const [month, date] = [
-      value._d.getMonth(),
-      value._d.getDate() < 10
-        ? "" + 0 + value._d.getDate()
-        : value._d.getDate(),
-    ];
-    const _date = "" + month + date;
+    const [month, date] = [value._d.getMonth(), (value._d.getDate() < 10 ? '' + 0 + value._d.getDate() : value._d.getDate())];
+    console.log(month, curMonth);
+
+
+    const _date = '' + month + date;
     console.log(_date);
     history.push({
       pathname: "/emoji",

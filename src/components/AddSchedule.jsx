@@ -2,31 +2,37 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { history } from "../redux/create";
 import { Row, Col } from "antd";
+import styles from "../css/addSchedule.module.scss";
 
 export default function AddSchedule({ addSchedule, date, emoji }) {
   const titleRef = React.createRef(null);
   const messageRef = React.createRef(null);
-  console.log("1", date, emoji);
-
+  const _emoji = { __html: emoji };
   return (
-    <Row justify="center">
-      <Col span={16}>
-        <form>
-          <p>{emoji}</p>
-          <p>
+    <Row justify="center" className={styles.container}>
+      <Col span={16} className={styles["flex-container"]}>
+        <form className={styles["emoji-container"]}>
+          <p dangerouslySetInnerHTML={_emoji} className={styles.emoji}></p>
+          <p className={styles.date}>
             2020년{" "}
             {(+date + 100 + "").length === 3
               ? (+date + 100 + "")[0]
               : (+date + 100 + "")[0] + (+date + 100 + "")[1]}
             월{" "}
             {(+date + 100 + "").length === 3
-              ? date[1] + date[2]
-              : date[2] + date[3]}
+              ? (+date + 100 + "")[1] !== "0"
+                ? (+date + 100 + "")[1] + (+date + 100 + "")[2]
+                : (+date + 100 + "")[2]
+              : (+date + 100 + "")[2] !== "0"
+              ? (+date + 100 + "")[2] + (+date + 100 + "")[3]
+              : (+date + 100 + "")[3]}
             일
           </p>
           <input type="text" name="title" ref={titleRef} />
           <input type="text" name="message" ref={messageRef} />
-          <button onClick={click}>확인</button>
+          <button onClick={click} type="button">
+            확인
+          </button>
           <Link to="/">
             <button>취소</button>
           </Link>
@@ -39,7 +45,7 @@ export default function AddSchedule({ addSchedule, date, emoji }) {
     const title = titleRef.current.value;
     const author = date;
     const message = messageRef.current.value;
-    const url = emoji.substring(0, 7);
+    const url = emoji;
     console.log(url);
     addSchedule({ title, author, message, url });
     history.push("/");

@@ -1,8 +1,3 @@
-body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-}
 .container {
   margin: 0;
   padding: 0;
@@ -21,16 +16,20 @@ body {
       padding: 0;
       background-color: dodgerblue;
 
-      p {
-        display: block;
+      .emoji {
+        background-color: firebrick;
+        text-align: center;
+        font-size: 300px;
+        margin-bottom: 0;
+        cursor: pointer;
       }
 
-      .emoji {
-        margin: 0;
-        padding: 0;
-        background-color: firebrick;
-        font-size: 300px;
-        cursor: pointer;
+      .date {
+        text-align: center;
+      }
+
+      input {
+        width: 100%;
       }
     }
   }
