@@ -1,31 +1,29 @@
 $font-color: #24292e;
 $focus-color: #66ccff;
-$main-color: #ffcb00;
+$font-size: 15px;
+$main-color: #ffb500;
 $sub-color: #f9f7f0;
+$transition: all 0.2s;
+$radius: 10px;
+$gap: 20px;
 $outline-color: #e1e4e8;
-$gradient: linear-gradient(
-  135deg,
-  rgba(6, 109, 171, 1) 0%,
-  rgba(85, 169, 214, 1) 80%,
-  rgba(162, 210, 232, 1) 100%
-);
 
 .container {
   margin: 0;
-  padding: 0;
+  padding: $gap;
+  font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
   box-sizing: border-box;
   background-color: $sub-color;
+  height: 100vh;
 
   .flex-container {
     display: flex;
     justify-content: center;
-    align-items: top;
     flex-wrap: wrap;
-    height: 100vh;
     padding-top: 10px;
 
     .emoji-container {
-      display: inline;
+      display: block;
       margin: 0 10px;
       padding: 0;
       text-align: center;
@@ -33,66 +31,57 @@ $gradient: linear-gradient(
 
       .emoji {
         text-align: center;
-        font-size: 300px;
+        font-size: 15rem;
         margin-bottom: 0;
+        color: rgba(0, 0, 0, 1);
+        line-height: 1;
         cursor: pointer;
       }
 
       .date {
-        text-align: center;
+        text-align: left;
         margin-top: 15px;
-        font-size: 30px;
+        font-size: $font-size * 2;
         font-weight: 700;
+        color: $main-color;
       }
-
-      // input {
-      //   width: 100%;
-      //   margin: 10px 0;
-      //   font-size: 18px;
-      // }
 
       input,
       textarea {
-        width: 500px;
+        width: 50vw;
         display: block;
-        border: 0.5px solid $outline-color;
-        border-radius: 5px;
-        padding: 4px 10px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 15px;
-      }
-
-      input:focus,
-      textarea:focus {
-        outline: none;
-        border-color: $focus-color;
-        box-shadow: 0 0 10px $focus-color;
+        border: 0;
+        border-radius: $radius;
+        padding: $gap / 2;
+        margin-bottom: $gap;
+        background-color: transparent;
+        transition: $transition;
+        &:focus,
+        &:focus {
+          outline: none;
+          background-color: #fff;
+        }
       }
 
       .title {
-        font-size: 24px;
-        height: 50px;
-        font-weight: 700;
+        font-size: $font-size * 1.5;
+        font-weight: 400;
       }
 
       .message {
-        font-size: 18px;
-        height: 160px;
+        font-size: $font-size;
+        min-height: 10rem;
       }
 
       button {
         width: calc(50% - 5px);
-        margin: 0;
-        padding: 0;
-        border-width: 0;
+        padding: $gap / 2;
+        border: 0;
         font-weight: 400;
-        font-size: 20px;
-        padding: 5px 12px;
+        font-size: $font-size;
         overflow: hidden;
-        border-width: 0;
-        border-radius: 4px;
-        color: $font-color;
+        border-radius: $radius;
+        color: #fff;
       }
 
       button:focus {
@@ -104,13 +93,11 @@ $gradient: linear-gradient(
       .save {
         margin-right: 5px;
         background: $main-color;
-        color: $font-color;
       }
 
       .cancel {
         margin-left: 5px;
         background-color: #c8c8c8;
-        color: $font-color;
       }
     }
   }
