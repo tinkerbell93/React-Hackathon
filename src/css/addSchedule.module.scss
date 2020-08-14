@@ -1,23 +1,37 @@
+$font-color: #24292e;
+$focus-color: #66ccff;
+$main-color: #ffcb00;
+$sub-color: #f9f7f0;
+$outline-color: #e1e4e8;
+$gradient: linear-gradient(
+  135deg,
+  rgba(6, 109, 171, 1) 0%,
+  rgba(85, 169, 214, 1) 80%,
+  rgba(162, 210, 232, 1) 100%
+);
+
 .container {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: $sub-color;
 
   .flex-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: top;
     flex-wrap: wrap;
     height: 100vh;
+    padding-top: 10px;
 
     .emoji-container {
       display: inline;
       margin: 0 10px;
       padding: 0;
-      background-color: dodgerblue;
+      text-align: center;
+      // background-color: dodgerblue;
 
       .emoji {
-        background-color: firebrick;
         text-align: center;
         font-size: 300px;
         margin-bottom: 0;
@@ -26,10 +40,77 @@
 
       .date {
         text-align: center;
+        margin-top: 15px;
+        font-size: 30px;
+        font-weight: 700;
       }
 
-      input {
-        width: 100%;
+      // input {
+      //   width: 100%;
+      //   margin: 10px 0;
+      //   font-size: 18px;
+      // }
+
+      input,
+      textarea {
+        width: 500px;
+        display: block;
+        border: 0.5px solid $outline-color;
+        border-radius: 5px;
+        padding: 4px 10px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 15px;
+      }
+
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: $focus-color;
+        box-shadow: 0 0 10px $focus-color;
+      }
+
+      .title {
+        font-size: 24px;
+        height: 50px;
+        font-weight: 700;
+      }
+
+      .message {
+        font-size: 18px;
+        height: 160px;
+      }
+
+      button {
+        width: calc(50% - 5px);
+        margin: 0;
+        padding: 0;
+        border-width: 0;
+        font-weight: 400;
+        font-size: 20px;
+        padding: 5px 12px;
+        overflow: hidden;
+        border-width: 0;
+        border-radius: 4px;
+        color: $font-color;
+      }
+
+      button:focus {
+        outline: none;
+        border-color: $focus-color;
+        box-shadow: 0 0 10px $focus-color;
+      }
+
+      .save {
+        margin-right: 5px;
+        background: $main-color;
+        color: $font-color;
+      }
+
+      .cancel {
+        margin-left: 5px;
+        background-color: #c8c8c8;
+        color: $font-color;
       }
     }
   }
