@@ -1,3 +1,8 @@
+@mixin flex-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 $font-color: #24292e;
 $focus-color: #66ccff;
 $font-size: 15px;
@@ -17,23 +22,23 @@ $outline-color: #e1e4e8;
   height: 100vh;
 
   .flex-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    @include flex-layout;
     padding-top: 10px;
 
     .emoji-container {
       display: block;
-      margin: 0 10px;
-      padding: 0;
       text-align: center;
-      // background-color: dodgerblue;
-
+      .form-wrapper {
+        @include flex-layout;
+        .rigth {
+          padding-left: $gap;
+        }
+      }
       .emoji {
         text-align: center;
         font-size: 15rem;
         margin-bottom: 0;
-        color: rgba(0, 0, 0, 1);
+        color: rgba(0, 0, 0, 0.9);
         line-height: 1;
         cursor: pointer;
       }
@@ -44,6 +49,7 @@ $outline-color: #e1e4e8;
         font-size: $font-size * 2;
         font-weight: 700;
         color: $main-color;
+        margin-left: $gap;
       }
 
       input,
@@ -56,6 +62,7 @@ $outline-color: #e1e4e8;
         margin-bottom: $gap;
         background-color: transparent;
         transition: $transition;
+        margin-left: $gap;
         &:focus,
         &:focus {
           outline: none;
@@ -82,12 +89,12 @@ $outline-color: #e1e4e8;
         overflow: hidden;
         border-radius: $radius;
         color: #fff;
-      }
-
-      button:focus {
-        outline: none;
-        border-color: $focus-color;
-        box-shadow: 0 0 10px $focus-color;
+        cursor: pointer;
+        transition: $transition;
+        &:hover {
+          outline: none;
+          box-shadow: 0px 3px 5px #ddd;
+        }
       }
 
       .save {

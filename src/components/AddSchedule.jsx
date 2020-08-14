@@ -12,35 +12,41 @@ export default function AddSchedule({ addSchedule, date, emoji }) {
     <Row justify='center' className={styles.container}>
       <Col span={16} className={styles['flex-container']}>
         <form className={styles['emoji-container']}>
-          <p dangerouslySetInnerHTML={_emoji} className={styles.emoji}></p>
-          <p className={styles.date}>
-            2020년{' '}
-            {(+date + 100 + '').length === 3
-              ? (+date + 100 + '')[0]
-              : (+date + 100 + '')[0] + (+date + 100 + '')[1]}
-            월{' '}
-            {(+date + 100 + '').length === 3
-              ? (+date + 100 + '')[1] !== '0'
-                ? (+date + 100 + '')[1] + (+date + 100 + '')[2]
-                : (+date + 100 + '')[2]
-              : (+date + 100 + '')[2] !== '0'
-              ? (+date + 100 + '')[2] + (+date + 100 + '')[3]
-              : (+date + 100 + '')[3]}
-            일
-          </p>
-          <input
-            type='text'
-            className={styles.title}
-            name='title'
-            ref={titleRef}
-            placeholder='일기 제목'
-          />
-          <textarea
-            className={styles.message}
-            name='message'
-            ref={messageRef}
-            placeholder='오늘 하루를 기록해보세요!'
-          />
+          <div className={styles['form-wrapper']}>
+            <div className={styles.left}>
+              <p dangerouslySetInnerHTML={_emoji} className={styles.emoji}></p>
+            </div>
+            <div className={styles.right}>
+              <p className={styles.date}>
+                2020년{' '}
+                {(+date + 100 + '').length === 3
+                  ? (+date + 100 + '')[0]
+                  : (+date + 100 + '')[0] + (+date + 100 + '')[1]}
+                월{' '}
+                {(+date + 100 + '').length === 3
+                  ? (+date + 100 + '')[1] !== '0'
+                    ? (+date + 100 + '')[1] + (+date + 100 + '')[2]
+                    : (+date + 100 + '')[2]
+                  : (+date + 100 + '')[2] !== '0'
+                  ? (+date + 100 + '')[2] + (+date + 100 + '')[3]
+                  : (+date + 100 + '')[3]}
+                일
+              </p>
+              <input
+                type='text'
+                className={styles.title}
+                name='title'
+                ref={titleRef}
+                placeholder='일기 제목'
+              />
+              <textarea
+                className={styles.message}
+                name='message'
+                ref={messageRef}
+                placeholder='오늘 하루를 기록해보세요!'
+              />
+            </div>
+          </div>
           <button onClick={click} type='button' className={styles.save}>
             저장
           </button>
