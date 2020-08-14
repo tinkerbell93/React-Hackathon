@@ -3,7 +3,6 @@ import '../css/signin.scss';
 import SigninFormContainer from '../containers/SigninFormContainer';
 import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { Row, Col } from 'antd';
 
 export default function Signin() {
   const token = useSelector((state) => state.auth.token);

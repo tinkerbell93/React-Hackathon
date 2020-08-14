@@ -13,18 +13,13 @@ export default function SigninForm({ login, loading }) {
           &#128578;
         </span>
       </h2>
-      <div className='left'></div>
-      <div className='right'>
+      <div>
         <label>
-          <input type='text' ref={emailRef} placeholder='이메일 입력' />
+          <input type='text' ref={emailRef} placeholder='email' />
           <UserOutlined />
         </label>
         <label>
-          <input
-            type='password'
-            ref={passwordRef}
-            placeholder='비밀번호 입력'
-          />
+          <input type='password' ref={passwordRef} placeholder='password' />
           <LockOutlined />
         </label>
         {loading && <p>로딩 중</p>}

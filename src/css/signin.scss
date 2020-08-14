@@ -14,33 +14,66 @@
 }
 
 $font-size: 15px;
-$main-color: #ddd;
-$sub-color: #333;
+$main-color: #ffc000;
+$sub-color: #f9f7f0;
 $radius: 5px;
-$padding: 20px;
+$gap: 20px;
 
 .signin {
   @include flex-layout;
   height: 100vh;
   font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
+  color: $sub-color;
   .a11y-hidden {
     @include a11y-hidden;
   }
   .signin-form {
-    width: 80vw;
+    width: 30vw;
+    max-width: 320px;
+    margin-top: -100px;
+    h2 {
+      margin: 0;
+      font-weight: 700;
+      font-size: $font-size * 3;
+      line-height: 1;
+      color: $main-color;
+    }
     .imo {
-      font-size: 20px;
-      padding-left: $padding / 2;
+      font-size: $font-size * 2;
+      padding-left: $gap / 2;
     }
-    label {
-      display: block;
-      input {
-        width: 80%;
+    div {
+      padding: $gap;
+      border-radius: $radius;
+      background-color: $main-color;
+      label {
+        display: block;
+        position: relative;
+        color: $main-color;
+        span {
+          position: absolute;
+          top: 14px;
+          left: 8px;
+        }
+        input {
+          width: 100%;
+          font-weight: 700;
+          padding: $gap / 2;
+          padding-left: $gap * 1.5;
+          margin-bottom: $gap;
+          border: 0;
+          border-radius: $radius;
+        }
       }
-    }
-    button {
-      display: inline-block;
-      outline: 0;
+      button {
+        display: inline-block;
+        padding: $gap / 2;
+        background-color: $sub-color;
+        color: $main-color;
+        border: 0;
+        border-radius: $radius;
+        outline: 0;
+      }
     }
   }
 }
