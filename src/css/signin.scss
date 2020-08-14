@@ -1,0 +1,46 @@
+@mixin flex-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin a11y-hidden {
+  background-color: blue;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: polygon(0 0, 0 0, 0 0);
+}
+
+$font-size: 15px;
+$main-color: #ddd;
+$sub-color: #333;
+$radius: 5px;
+$padding: 20px;
+
+.signin {
+  @include flex-layout;
+  height: 100vh;
+  font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
+  .a11y-hidden {
+    @include a11y-hidden;
+  }
+  .signin-form {
+    width: 80vw;
+    .imo {
+      font-size: 20px;
+      padding-left: $padding / 2;
+    }
+    label {
+      display: block;
+      input {
+        width: 80%;
+      }
+    }
+    button {
+      display: inline-block;
+      outline: 0;
+    }
+  }
+}

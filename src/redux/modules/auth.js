@@ -10,6 +10,7 @@ import {
   select,
 } from 'redux-saga/effects';
 import { createActions, handleActions, createAction } from 'redux-actions';
+import { message } from 'antd';
 
 const prefix = 'my-project/auth';
 
@@ -76,6 +77,14 @@ function* startLoginSaga(action) {
   } catch (error) {
     yield put(fail(error));
     console.log(error);
+    const errorCode = error?.response?.data?.error || 'NOT_MATCH';
+    if (errorCode === 'PASSWORD_NOT_MATCH') {
+      message.error('Password not match');
+    } else if (errorCode === 'USER_NOT_EXIST') {
+      message.error('User not exist');
+    } else {
+      message.error("We don't know message");
+    }
   }
 }
 
