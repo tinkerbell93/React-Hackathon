@@ -28,13 +28,24 @@ export default function AddSchedule({ addSchedule, date, emoji }) {
               : (+date + 100 + "")[3]}
             일
           </p>
-          <input type="text" name="title" ref={titleRef} />
-          <input type="text" name="message" ref={messageRef} />
-          <button onClick={click} type="button">
-            확인
+          <input
+            type="text"
+            className={styles.title}
+            name="title"
+            ref={titleRef}
+            placeholder="제목"
+          />
+          <textarea
+            className={styles.message}
+            name="message"
+            ref={messageRef}
+            placeholder="내용"
+          />
+          <button onClick={click} type="button" className={styles.save}>
+            저장
           </button>
           <Link to="/">
-            <button>취소</button>
+            <button className={styles.cancel}>취소</button>
           </Link>
         </form>
       </Col>
