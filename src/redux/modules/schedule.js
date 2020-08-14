@@ -43,8 +43,13 @@ const failGetSchedule = (err) => {
 
 function* getScheduleSaga() {
   // const token = yield select(state => state.auth.token);
+<<<<<<< HEAD
   const token = sessionStorage.getItem("token");
   console.log("hi");
+=======
+  const token = localStorage.getItem('token');
+  console.log('hi');
+>>>>>>> 9a0136527083589f9cc6af104ff7729322328184
   yield put(startGetSchedule());
   try {
     const books = yield call(ScheduleService.getSchedule, token);

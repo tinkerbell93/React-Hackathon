@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import { Calendar, Badge } from "antd";
 import "antd/dist/antd.css";
@@ -14,6 +15,23 @@ export default function ScheduleList({
   error,
   getSchedule,
 }) {
+=======
+import React from 'react';
+import { Calendar, Badge } from 'antd';
+import '../antd.css'
+import styles from './ScheduleList.module.css'
+import { useCallback } from 'react';
+import { history } from '../redux/create';
+
+
+const defaultChars = { __html: '&#128566' }
+
+
+
+
+
+export default function ScheduleList({ schedule, loading, error, getSchedule, mode }) {
+>>>>>>> 9a0136527083589f9cc6af104ff7729322328184
   const today = new Date();
   const _today =
     "" +
@@ -61,6 +79,7 @@ export default function ScheduleList({
   );
 
   return (
+<<<<<<< HEAD
     <Calendar
       dateCellRender={dateCellRender}
       monthCellRender={8}
@@ -68,6 +87,9 @@ export default function ScheduleList({
         select(value);
       }}
     />
+=======
+    <Calendar className={mode ? styles.dark_mode : ''} dateCellRender={dateCellRender} monthCellRender={8} onSelect={(value) => { select(value) }} />
+>>>>>>> 9a0136527083589f9cc6af104ff7729322328184
   );
 
   function select(value) {
