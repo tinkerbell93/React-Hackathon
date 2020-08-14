@@ -14,6 +14,7 @@ import Home from "./pages/Home";
 import SelectEmojiContainer from "./containers/SelectEmojiContainer";
 import AddScheduleContainer from "./containers/AddScheduleContainer";
 import EditScheduleContainer from "./containers/EditScheduleContainer";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/add" component={AddScheduleContainer} />
             <Route path="/emoji" component={SelectEmojiContainer} />
             <Route path="/" exact component={Home}></Route>
+            <Route component={NotFound} />
           </Switch>
         </ConnectedRouter>
       </ErrorBoundary>
