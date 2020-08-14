@@ -12,7 +12,7 @@ const defaultChars = { __html: '&#128566' }
 
 
 
-export default function ScheduleList({ schedule, loading, error, getSchedule, mode }) {
+export default function ScheduleList({ schedule, loading, error, getSchedule }) {
   const today = new Date();
   const _today = '' + today.getMonth() + (today.getDate() < 10 ? '' + 0 + today.getDate() : today.getDate());
 
@@ -49,7 +49,7 @@ export default function ScheduleList({ schedule, loading, error, getSchedule, mo
 
 
   return (
-    <Calendar className={mode ? styles.dark_mode : ''} dateCellRender={dateCellRender} monthCellRender={8} onSelect={(value) => { select(value) }} />
+    <Calendar dateCellRender={dateCellRender} monthCellRender={8} onSelect={(value) => { select(value) }} />
   );
 
   function select(value) {
