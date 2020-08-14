@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { history } from "../redux/create";
 
 export default function AddSchedule({ addSchedule, date, emoji }) {
   const titleRef = React.createRef(null);
   const messageRef = React.createRef(null);
-  console.log(+date + 100 + "");
+  console.log("1", date, emoji);
+
   return (
     <div>
       <form>
@@ -34,7 +36,9 @@ export default function AddSchedule({ addSchedule, date, emoji }) {
     const title = titleRef.current.value;
     const author = date;
     const message = messageRef.current.value;
-    const url = emoji;
+    const url = emoji.substring(0, 7);
+    console.log(url);
     addSchedule({ title, author, message, url });
+    history.push("/");
   }
 }

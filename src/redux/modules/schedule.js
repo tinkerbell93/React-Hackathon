@@ -6,16 +6,8 @@ import {
   select,
   delay,
   takeLatest,
-<<<<<<< HEAD
   takeLeading,
 } from "redux-saga/effects";
-=======
-  takeLeading
-} from 'redux-saga/effects';
-import TokenService from '../../services/TokenService';
-
-const prefix = 'my-project/schedule'
->>>>>>> e79cab4ad2e59c0575873d657989e94731858017
 
 const prefix = "my-project/schedule";
 
@@ -51,17 +43,8 @@ const failGetSchedule = (err) => {
 
 function* getScheduleSaga() {
   // const token = yield select(state => state.auth.token);
-<<<<<<< HEAD
-<<<<<<< HEAD
-  const token = sessionStorage.getItem("token");
+  const token = localStorage.getItem("token");
   console.log("hi");
-=======
-  const token = localStorage.getItem('token');
-  console.log('hi');
->>>>>>> 9a0136527083589f9cc6af104ff7729322328184
-=======
-  const token = TokenService.get();
->>>>>>> e79cab4ad2e59c0575873d657989e94731858017
   yield put(startGetSchedule());
   try {
     const books = yield call(ScheduleService.getSchedule, token);
@@ -108,7 +91,7 @@ function* addScheduleSaga(action) {
   try {
     yield delay(1500);
     yield call(ScheduleService.addSchedule, token, schedule);
-    const schedules = yield call(ScheduleService.addSchedule, token);
+    const schedules = yield call(ScheduleService.getSchedule, token);
     yield put(successAddSchedule(schedules));
   } catch (err) {
     yield put(err);
