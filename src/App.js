@@ -13,6 +13,7 @@ import { history } from "./redux/create";
 import Home from "./pages/Home";
 import SelectEmojiContainer from "./containers/SelectEmojiContainer";
 import AddScheduleContainer from "./containers/AddScheduleContainer";
+import EditScheduleContainer from "./containers/EditScheduleContainer";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <ConnectedRouter history={history}>
           <Switch>
             <Route path="/Signin" component={Signin} />
+            <Route path="/edit" component={EditScheduleContainer} />
             <Route path="/add" component={AddScheduleContainer} />
             <Route path="/emoji" component={SelectEmojiContainer} />
             <Route path="/" exact component={Home}></Route>

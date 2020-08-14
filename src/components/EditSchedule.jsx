@@ -1,14 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { history } from "../redux/create";
+import { useState } from "react";
 
-export default function AddSchedule({ addSchedule, date, emoji }) {
-  const titleRef = React.createRef(null);
-  const messageRef = React.createRef(null);
+export default function EditSchedule({ editSchedule, schedule, emoji }) {
+  const [title, setTitle] = useState(schedule.title);
+  const [message, setMessage] = useState(schedule.message);
   const _emoji = { __html: emoji };
-
-  console.log("1", date, _emoji);
-
+  const date = schedule.author
   return (
     <div>
       <form>
@@ -24,8 +23,8 @@ export default function AddSchedule({ addSchedule, date, emoji }) {
             : date[2] + date[3]}
           일
         </p>
-        <input type="text" name="title" ref={titleRef} />
-        <input type="text" name="message" ref={messageRef} />
+        <input type="text" name="title" value={title} onChange={(e) => { setTitle(e.target.value) }} />
+        <input type="text" name="message" value={message} onChange={(e) => { setMessage(e.target.value) }} />
         <button onClick={click} type="button">확인</button>
         <Link to="/">
           <button>취소</button>
@@ -35,12 +34,9 @@ export default function AddSchedule({ addSchedule, date, emoji }) {
   );
 
   async function click() {
-    const title = titleRef.current.value;
     const author = date;
-    const message = messageRef.current.value;
     const url = emoji;
-    console.log(url);
-    addSchedule({ title, author, message, url });
+    editSchedule(schedule.bookId, { title, author, message, url });
     history.push("/");
   }
 }

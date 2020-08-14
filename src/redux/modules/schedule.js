@@ -85,11 +85,12 @@ const failAddSchedule = (err) => {
 };
 
 function* addScheduleSaga(action) {
-  const { schedule } = action.payload;
+  const {
+    schedule
+  } = action.payload;
   const token = yield select((state) => state.auth.token);
   yield put(startAddSchedule());
   try {
-    yield delay(1500);
     yield call(ScheduleService.addSchedule, token, schedule);
     const schedules = yield call(ScheduleService.getSchedule, token);
     yield put(successAddSchedule(schedules));
@@ -106,8 +107,63 @@ export const addScheduleSagaActionCreator = (schedule) => ({
   },
 });
 
+//edit
+
+const EDIT_START = `${prefix}/EDIT_START`;
+const EDIT_SUCCESS = `${prefix}/EDIT_SUCCESS`;
+const EDIT_FAIL = `${prefix}/EDIT_FAIL`;
+
+const startEditSchedule = (schedule) => {
+  return {
+    type: EDIT_START,
+    schedule,
+  };
+};
+
+const successEditSchedule = (schedule) => {
+  return {
+    type: EDIT_SUCCESS,
+    schedule,
+  };
+};
+
+const failEditSchedule = (err) => {
+  return {
+    type: EDIT_FAIL,
+    err,
+  };
+};
+
+function* editScheduleSaga(action) {
+  const {
+    scheduleId,
+    schedule
+  } = action.payload;
+  const token = yield select((state) => state.auth.token);
+  yield put(startAddSchedule());
+  try {
+    yield call(ScheduleService.editSchedule, token, scheduleId, schedule);
+    const schedules = yield call(ScheduleService.getSchedule, token);
+    yield put(successAddSchedule(schedules));
+  } catch (err) {
+    yield put(err);
+  }
+}
+
+const EDIT_SCHEDULE_SAGA = "EDIT_SCHEDULE_SAGA";
+export const editScheduleSagaActionCreator = (scheduleId, schedule) => ({
+  type: EDIT_SCHEDULE_SAGA,
+  payload: {
+    scheduleId,
+    schedule,
+  },
+});
+
+//
+
 export function* scheduleSaga() {
   yield takeLatest(GET_SCHEDULE_SAGA, getScheduleSaga);
+  yield takeLeading(EDIT_SCHEDULE_SAGA, editScheduleSaga);
   yield takeEvery(ADD_SCHEDULE_SAGA, addScheduleSaga);
 }
 
@@ -117,39 +173,57 @@ export default function reducer(prevState = initialState, action) {
       return {
         ...prevState,
         loading: true,
-        error: null,
+          error: null,
       };
     case GET_SUCCESS:
       return {
         loading: false,
-        schedule: action.schedule,
-        error: null,
+          schedule: action.schedule,
+          error: null,
       };
     case GET_FAIL:
       return {
         ...prevState,
         loading: true,
-        error: action.err,
+          error: action.err,
       };
     case ADD_START:
       return {
         ...prevState,
         loading: true,
-        error: null,
+          error: null,
       };
     case ADD_SUCCESS:
       return {
         loading: false,
-        schedule: action.schedule,
-        error: null,
+          schedule: action.schedule,
+          error: null,
       };
     case ADD_FAIL:
       return {
         ...prevState,
         loading: true,
-        error: action.err,
+          error: action.err,
       };
-    default:
-      return prevState;
+    case EDIT_START:
+      return {
+        ...prevState,
+        loading: true,
+          error: null,
+      }
+      case EDIT_SUCCESS:
+        return {
+          schedule: action.schedule,
+            loading: false,
+            error: null,
+        }
+        case EDIT_FAIL:
+          return {
+            ...prevState,
+            loading: false,
+              error: action.err,
+          }
+          default:
+            return prevState;
   }
 }
