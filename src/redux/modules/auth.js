@@ -1,6 +1,6 @@
-import UserService from '../../services/UserService';
-import TokenService from '../../services/TokenService';
-import { push } from 'connected-react-router';
+import UserService from "../../services/UserService";
+import TokenService from "../../services/TokenService";
+import { push } from "connected-react-router";
 import {
   takeEvery,
   put,
@@ -8,17 +8,17 @@ import {
   call,
   takeLeading,
   select,
-} from 'redux-saga/effects';
-import { createActions, handleActions, createAction } from 'redux-actions';
+} from "redux-saga/effects";
+import { createActions, handleActions, createAction } from "redux-actions";
 
-const prefix = 'my-project/auth';
+const prefix = "my-project/auth";
 
 const { start, success, fail } = createActions(
   {
     SUCCESS: (token) => ({ token }),
   },
-  'START',
-  'FAIL',
+  "START",
+  "FAIL",
   { prefix }
 );
 
@@ -72,7 +72,7 @@ function* startLoginSaga(action) {
     const token = yield call(UserService.login, email, password);
     TokenService.save(token);
     yield put(success(token));
-    yield put(push('/'));
+    yield put(push("/"));
   } catch (error) {
     yield put(fail(error));
     console.log(error);
@@ -83,7 +83,7 @@ function* startLogoutSaga() {
   const token = yield select((state) => state.auth.token);
   TokenService.clear();
   yield put(success(null));
-  yield put(push('/signin'));
+  yield put(push("/signin"));
   try {
     yield call(UserService.logout, token);
   } catch (error) {}
