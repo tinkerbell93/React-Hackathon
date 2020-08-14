@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { history } from "../redux/create";
+import { Row, Col } from "antd";
 
 export default function AddSchedule({ addSchedule, date, emoji }) {
   const titleRef = React.createRef(null);
@@ -8,28 +9,30 @@ export default function AddSchedule({ addSchedule, date, emoji }) {
   console.log("1", date, emoji);
 
   return (
-    <div>
-      <form>
-        <p>{emoji}</p>
-        <p>
-          2020년{" "}
-          {(+date + 100 + "").length === 3
-            ? (+date + 100 + "")[0]
-            : (+date + 100 + "")[0] + (+date + 100 + "")[1]}
-          월{" "}
-          {(+date + 100 + "").length === 3
-            ? date[1] + date[2]
-            : date[2] + date[3]}
-          일
-        </p>
-        <input type="text" name="title" ref={titleRef} />
-        <input type="text" name="message" ref={messageRef} />
-        <button onClick={click}>확인</button>
-        <Link to="/">
-          <button>취소</button>
-        </Link>
-      </form>
-    </div>
+    <Row justify="center">
+      <Col span={16}>
+        <form>
+          <p>{emoji}</p>
+          <p>
+            2020년{" "}
+            {(+date + 100 + "").length === 3
+              ? (+date + 100 + "")[0]
+              : (+date + 100 + "")[0] + (+date + 100 + "")[1]}
+            월{" "}
+            {(+date + 100 + "").length === 3
+              ? date[1] + date[2]
+              : date[2] + date[3]}
+            일
+          </p>
+          <input type="text" name="title" ref={titleRef} />
+          <input type="text" name="message" ref={messageRef} />
+          <button onClick={click}>확인</button>
+          <Link to="/">
+            <button>취소</button>
+          </Link>
+        </form>
+      </Col>
+    </Row>
   );
 
   async function click() {

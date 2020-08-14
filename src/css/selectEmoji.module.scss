@@ -1,0 +1,14 @@
+.container {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100vh;
+
+  .emoji-container {
+    .emoji {
+      // height: calc(100vh / 6);
+      font-size: 200px;
+      cursor: pointer;
+    }
+  }
+}

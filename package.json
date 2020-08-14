@@ -9,6 +9,7 @@
     "antd": "^4.5.3",
     "axios": "^0.19.2",
     "connected-react-router": "^6.8.0",
+    "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-calendar": "^3.1.0",
     "react-dom": "^16.13.1",
