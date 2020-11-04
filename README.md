@@ -1,6 +1,6 @@
 # 오늘 나의 감정
 
-🏠 [HOMEPAGE]()
+🏠 [HOMEPAGE](https://react-hackathon.vercel.app/signin) <br />
 📹 [DEMO VIDEO](https://youtu.be/uzKeuc_Wg9k)
 
 ## 이모지를 활용한 일기 작성 웹 애플리케이션
@@ -10,11 +10,9 @@
 
 ## 개발 인원
 
-FE 3명
-
-- 유진혁 [@SaltPepperSalt](https://github.com/SaltPepperSalt)
-- 김가현 [@tinkerbell93](https://github.com/tinkerbell93)
-- 류동우 [@Detrox20](https://github.com/Detrox20)
+- FE 유진혁 [@SaltPepperSalt](https://github.com/SaltPepperSalt)
+- FE 김가현 [@tinkerbell93](https://github.com/tinkerbell93)
+- FE 류동우 [@Detrox20](https://github.com/Detrox20)
 
 ## 적용기술
 
@@ -39,8 +37,8 @@ FE 3명
 
 ## Getting Started
 
-id: dbwlsgur24@daum.net
-pw: fcschool16th
+ID: hhjj105@gmail.com <br/>
+PW: fcschool16th
 
 ```code
 $ git clone "https://github.com/tinkerbell93/React-Hackathon.git"
