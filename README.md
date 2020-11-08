@@ -1,15 +1,28 @@
-이모지를 활용한 일기 작성 웹 애플리케이션
+# 오늘 나의 감정
 
-## **개발 인원**
-- 개발인원 : Front-End 4명(유진혁, 김가현, 류동우)
+🏠 [HOMEPAGE]()
+📹 [DEMO VIDEO](https://youtu.be/uzKeuc_Wg9k)
+
+## 이모지를 활용한 일기 작성 웹 애플리케이션
+
+![사이트 스트린샷](./public/img/screenshot-01.png)
+![사이트 스트린샷](./public/img/screenshot-02.png)
+
+## 개발 인원
+
+FE 3명
+
+- 유진혁 [@SaltPepperSalt](https://github.com/SaltPepperSalt)
+- 김가현 [@tinkerbell93](https://github.com/tinkerbell93)
+- 류동우 [@Detrox20](https://github.com/Detrox20)
 
 ## 적용기술
+
 - HTML5
 - SCSS
-- javaScript
-- react
-
-- <details open>
+- JavaScript
+- React
+<details>
   <summary>라이브러리</summary>
   1. react-router-dom<br>
   2. react-redux<br>
@@ -24,18 +37,13 @@
   11. connected-react-router<br>
   </details>
 
-## **Getting Started**
-https://react-hackathon-5tiho0a5i.vercel.app/ 
+## Getting Started
 
-id: dbwlsgur24@daum.net pw: fcschool16th
+id: dbwlsgur24@daum.net
+pw: fcschool16th
 
-click imoge to write diary.
-
-click changed imoge to  modify diary
-
-경로 : ./src/key.js
-
-$ git clone "https://github.com/Stock-Flow/stockflow.git"
+```code
+$ git clone "https://github.com/tinkerbell93/React-Hackathon.git"
 $ npm install
-\$ npm start
-
+$ npm start
+```
