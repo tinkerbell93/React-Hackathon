@@ -43,10 +43,10 @@ export default function ScheduleList({
       }
       return (
         <>
-          {schedule.map((item) => {
+          {schedule.map((item, i) => {
             const specialChars = { __html: item.url };
             return item.author === _date ? (
-              <Badge status={"none"}>
+              <Badge status={"none"} key={i}>
                 <span
                   className="imo"
                   dangerouslySetInnerHTML={specialChars}
