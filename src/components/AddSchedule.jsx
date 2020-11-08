@@ -63,7 +63,6 @@ export default function AddSchedule({ addSchedule, date, emoji }) {
     const author = date;
     const message = messageRef.current.value;
     const url = emoji;
-    console.log(url);
     addSchedule({ title, author, message, url });
     history.push('/');
   }

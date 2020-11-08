@@ -76,7 +76,6 @@ function* startLoginSaga(action) {
     yield put(push('/'));
   } catch (error) {
     yield put(fail(error));
-    console.log(error);
     const errorCode = error?.response?.data?.error || 'NOT_MATCH';
     if (errorCode === 'PASSWORD_NOT_MATCH') {
       message.error('Password not match');

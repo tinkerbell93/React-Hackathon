@@ -71,7 +71,6 @@ export default function ScheduleList({
     };
     const [month, date] = [value._d.getMonth(), (value._d.getDate() < 10 ? '' + 0 + value._d.getDate() : value._d.getDate())];
     const _date = '' + month + date;
-    console.log(_date);
     history.push({
       pathname: "/emoji",
       state: {
